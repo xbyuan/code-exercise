@@ -1,0 +1,66 @@
+.relative {
+    position: relative;
+}
+
+/*Utilities*/
+.padd-left-0 {
+    padding-left: 0;
+}
+
+.padd-right-0 {
+    padding-right: 0;
+}
+
+.marg-top-25 {
+    margin-top: 25px;
+}
+
+.bg-graylight {
+    min-height: 266px;
+    background-color: #f9f9f9;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+}
+
+/*Nav Style*/
+.nav>li a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.navbar-nav>li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+}
+
+.navbar-default .navbar-nav>li a {
+    color: #777;
+}
+
+.navbar-default .navbar-nav>.active a,
+.navbar-default .navbar-nav>.active a:focus,
+.navbar-default .navbar-nav>.active a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+
+/*Subscribe page*/
+
+#submitOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255, 0.75);
+}
+
+.overlay-text {
+    display: flex;
+    margin: 0 auto;
+}

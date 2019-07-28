@@ -1,0 +1,71 @@
+<!--Error message container-->
+<h3>Subscribe to our latest promotion</h3>
+<div  uib-alert 
+      class="alert" 
+      close="closeAlert()"
+      ng-class="{'alert-danger': resSuccess === 3, 'alert-success': resSuccess === 2}"
+      ng-if="resSuccess > 1">
+  <span ng-if="resSuccess === 2">{{formFields.onSubmit.successMsg}}</span>
+  <span ng-if="resSuccess === 3">{{formFields.onSubmit.errorMsg}}</span>
+</div>
+<!--End Error message container-->
+<!--Subscribe Form-->
+<hr>
+<div class="clearfix relative">
+  <div class="col-sm-4">
+    <form ng-submit="submitForm()">
+      <div class="form-group" ng-repeat="item in formFields.fields">
+        <label for="{{item.name}}">{{item.text}}</label>
+        <input  ng-model="submitData[item.name]"
+                type="{{item.type}}" 
+                class="form-control" 
+                id="{{item.id}}" 
+                placeholder="{{item.placeholder}}" 
+                required>
+      </div>
+      <div class="clearfix marg-top-25">
+        <div class="col-sm-4 padd-left-0 padd-right-0">
+          <button type="button" class="btn btn-default btn-block" ng-click="backToHome()">
+            Cancel
+          </button>
+        </div>
+        <div class="col-sm-8 padd-right-0">
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-7 col-sm-offset-1 bg-graylight"></div>
+  <!--Submission overlay-->
+  <div id="submitOverlay" ng-if="resSuccess === 1">
+      <div class="overlay-text">
+        <i class="fa fa-spinner fa-spin fa-4x"></i>
+      </div>
+    </div>
+    <!--End Submission overlay--> 
+</div>
+<hr>
+<!--End Subscribe Form-->
+<!--Submitted form data-->
+<div class="clearfix" ng-if="subscribes.length > 0">
+  <h4 class="marg-top-25">Recent subscribed</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="subscribe in subscribes">
+        <th scope="row">{{$index}}</th>
+        <td>{{subscribe.inputName}}</td>
+        <td>{{subscribe.inputMobileNumber}}</td>
+        <td>{{subscribe.inputEmail}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--End Submitted form data-->

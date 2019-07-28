@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>Code Exercise</title>
+<!--UI Framework & Styles-->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/style.css" />
+</head>
+
+
+<body ng-app="codeExerciseApp" ng-controller="mainCtrl">
+<!--Header-->
+<header class="navbar navbar-static-top">
+  <div class="container">
+    <div class="container padd-left-0">
+        <h1>{{pageExercise.heading}}</h1>
+    </div>
+    <!--Nav bar-->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <li ng-repeat="item in pageExercise.mainMenu">
+                <!--if Dropdown layout-->
+                <div ng-if="item.children" class="dropdown" uib-dropdown>
+                  <a  href="#/{{item.path}}"
+                      data-toggle="dropdown"
+                      uib-dropdown-toggle>
+                      {{item.name}}
+                      <span ng-if="item.children" class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" 
+                      ng-if="item.children"
+                      uib-dropdown-menu>
+                      <li ng-repeat="subItem in item.children">
+                        <a href="{{subItem.path}}">{{subItem.name}}</a>
+                      </li>
+                  </ul>
+                </div>
+                <!--End if Dropdown layout-->
+                <!--If link layout-->
+                <!--Attach coming soon tooltip for not yet implemented item-->
+                <div  ng-if="item.children == undefined"
+                      uib-tooltip="Coming Soon"
+                      tooltip-enable="item.path.length < 1 && !item.children"
+                      tooltip-placement="bottom">
+                  <a  href="#/{{item.path}}"
+                      class="btn btn-link"
+                      ng-class="{'disabled': item.path.length < 1}">
+                      {{item.name}}
+                  </a>
+                </div>
+                <!--End Menu link layout-->
+              </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <!--End Nav bar-->
+  </div>
+</header>
+<!--End Header-->
+<!--Main view-->
+<section class="container">
+  <div class="clearfix" ng-view></div>
+</section>
+<!--End Main view-->
+
+
+<!--Framework-->
+<script src="https://code.angularjs.org/1.4.7/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyDfh_BMXf569Mtf9zh-n9_09DE9uexLmpo",
+    authDomain: "james-code-exercise.firebaseapp.com",
+    databaseURL: "https://james-code-exercise.firebaseio.com",
+    projectId: "james-code-exercise",
+    storageBucket: "",
+    messagingSenderId: "99429294994",
+    appId: "1:99429294994:web:c37e510b642acd80"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+<!--Module-->
+<script src="app.js"></script>
+<!-- Controllers -->
+<script src="service/service.js"></script>	
+<script src="controllers/mainCtrl.js"></script>	
+<script src="controllers/subscribeCtrl.js"></script>
+
+</body>
+
+</html>

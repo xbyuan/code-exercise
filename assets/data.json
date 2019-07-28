@@ -1,0 +1,62 @@
+{
+  "heading": "Front End Coding Exercise",
+  "mainMenu": [
+    {
+      "id": 1,
+      "name": "Featured",
+      "path": "",
+      "children": [
+        {
+          "id": 101,
+          "name": "Televisions",
+          "path": ""
+        },
+        {
+          "id": 102,
+          "name": "Digital Cameras",
+          "path": ""
+        },
+        {
+          "id": 103,
+          "name": "Laptops",
+          "path": ""
+        },
+        {
+          "id": 104,
+          "name": "iPhone",
+          "path": ""
+        },
+        {
+          "id": 105,
+          "name": "Home Audio",
+          "path": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Subscribe",
+      "path": "subscribe"
+    },
+    {
+      "id": 3,
+      "name": "Entertainment",
+      "path": ""
+    },
+    {
+      "id": 4,
+      "name": "Discover",
+      "path": ""
+    },
+    {
+      "id": 5,
+      "name": "Most Popular",
+      "path": ""
+    },
+    {
+      "id": 6,
+      "name": "Christmas",
+      "path": ""
+    }
+  ]
+}

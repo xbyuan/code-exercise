@@ -1,0 +1,30 @@
+{
+  "fields": [
+    {
+      "id": "inputName",
+      "text": "Name",
+      "name": "inputName",
+      "type": "text",
+      "placeholder": "Please enter your name"
+    },
+    {
+      "id": "inputMobileNumber",
+      "text": "Mobile Number",
+      "name": "inputMobileNumber",
+      "type": "tel",
+      "placeholder": "Please enter your mobile number"
+    },
+    {
+      "id": "inputEmail",
+      "text": "Email",
+      "name": "inputEmail",
+      "type": "email",
+      "placeholder": "Please enter your email address"
+    }
+  ],
+  "onSubmit": {
+    "ref": "subscribe",
+    "successMsg": "Your have successfully subscribed our catalogue",
+    "errorMsg": "Something went wrong, please try again later or contact us on 1300 000"
+  }
+}
